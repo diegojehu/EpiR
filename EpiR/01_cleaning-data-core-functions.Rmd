@@ -1,0 +1,60 @@
+---
+title: "01_cleaning-data-core-functions"
+author: "DAR"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R
+
+This practical shows common steps used for "cleaning" a dataset while
+explaining the use of many essential R data management functions.  
+
+As mentioned in the pre-course material, this course leverages
+on a number of functions from the [**tidyverse**](https://www.tidyverse.org/)
+R packages.  
+
+## Nomenclature
+Remember that in the R setting, it is generally preferred using the terms
+"columns" and "rows" instead of "variables" and "observations". However,
+for sections ahead related to statistical concepts, the terms variable and observations
+are preferred. Therefore, it makes sense to start thinking of these termse
+as interchangeable (while remembering when each one is used).
+
+As you are 
+probably aware, in the epidemiology context, datasets tend to consist most 
+frequently of rows, columns, and values. *Variables* contain values of a 
+measurement or characteristic of interest (e.g., age, height, history of diabetes,
+date of death, etc) and *observations* contain the values measured for each variable
+for each unit of measurement (e.g., participants, hospitals, samples, etc).
+
+Although a "clean" dataset can be thought of as a matrix where each row is
+an observation and each cell is a single value, one rarely starts a data analysis
+project (if only!) with an already clean dataset. Moreover, for important
+reasons, datasets could have a "wide" format with variables split across
+several columns or observations across several rows.
+
+# 1. The cleaning pipeline
+Data processing in epidemiology follows a step-by-step process that
+is usually linked in order to go from untidy and raw data to clean and
+ready-to-analyse datasets. In tidyverse language, this is called a pipeline
+because "the raw dataset is passed or 'piped' frokm one cleaning step
+to another."  
+
+These chains use the `dplyr` "verb" functions and the `magrittr` pipe
+operator `%>%`. This pipe begins with the "raw" data and ends with
+a "clean" R data frame that is ready to be used or exported.  
+
+A cleaning pipeline usually involve the following steps:  
+* Importing data
+* Cleaning and/or changing column names
+* Finding duplicates
+* Creating and/or transforming columns (i.e. usually informed by the statistical analysis plan)
+* Filtering or adding rows
+
+
+

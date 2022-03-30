@@ -3,3 +3,4 @@
 *.csv
 *.txt
 *.tsv
+/EpiR/data*
